@@ -1,5 +1,4 @@
 # Cryto Proyect
-
 ## Api 
 - https://coinlayer.com/documentation
 
@@ -7,7 +6,6 @@
 - Efecto maquina de escribir, con todas las opciones
 - Tarjetas alargadas y pequeñas  
   - Si no tiene icono poner un default
-
 ## Links
 ### Webs diseños
 - https://dribbble.com
@@ -17,7 +15,6 @@
 - https://undraw.co/search
 - https://storyset
 - https://isometriclove.com
-Hola!
 
 ### Fonts
 - https://fonts.google.com
