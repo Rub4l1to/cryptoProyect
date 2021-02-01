@@ -60,6 +60,7 @@ module.exports = {
       filename: "build.css",
     }),
   ],
+  
 };
 
 // mas documentacion: https://webpack.js.org/configuration/

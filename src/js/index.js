@@ -1,7 +1,7 @@
 //import "@babel/polyfill"
 
 import { main } from './main'
-import '../styles/main.scss'
+import '../css/main.scss'
 
 main()
 
