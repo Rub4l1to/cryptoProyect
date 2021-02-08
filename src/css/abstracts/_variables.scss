@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Roboto&display=swap');
+
+// FONTS 
+
+// Family
+$titles-font: 'Montserrat', sans-serif;
+$texts-font:'Roboto', sans-serif;
+
+// Size
+$default-font-size: 1.6rem;
+
+// COLORS
+$color-primary:#DEEBFD;
+$color-secondary: #B1CDF3;
+$color-third: #6CA5D1;
+$color-fourth: #2B3FCC;
+$color-fifth: #959FAB;
+$color-sixth: #282A2C;
+
+// GRID
+$grid-width: 150em;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 10rem;

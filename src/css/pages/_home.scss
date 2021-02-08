@@ -1,0 +1,27 @@
+.section-home {
+  @include flexbox(center, none);
+  position: relative;
+  height: 80vh;
+
+  &__titles {
+    height: 55%;
+    @include flexbox(center, normal, column);
+  }
+
+  &__search {
+    margin-left: 0.8em;
+    @include flexbox(normal, normal);
+  }
+}
+
+.coins {
+  position: absolute;
+  bottom: 0;
+  @include flexbox(center, normal);
+  margin-left: 5px ;
+  &__container {
+    width: $grid-width;
+    @include flexbox(space-around, normal);
+    flex-wrap: wrap;
+  }
+}
