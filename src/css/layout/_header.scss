@@ -1,0 +1,15 @@
+.header {
+  width: 100%;
+  @include flexbox(center, normal);
+
+  &__logo-container {
+    width: $grid-width;
+    @include flexbox(normal, center);
+    padding: 4em 3em;
+  }
+
+  &__logo {
+    object-fit: cover;
+    width: 8em;
+  }
+}

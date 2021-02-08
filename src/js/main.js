@@ -1,4 +1,6 @@
-export function main() {
-  // code goes here
-  console.log("* Webpack template is working fine");
-}
+import { typed } from "./utils/utils";
+
+export async function main() {}
+
+// Events
+window.onload = () => typed();
