@@ -4,12 +4,11 @@
   height: 80vh;
 
   &__titles {
-    height: 55%;
     @include flexbox(center, normal, column);
   }
 
   &__search {
-    margin-left: 0.8em;
+    margin: 5em 0 0 .8em;
     @include flexbox(normal, normal);
   }
 }
