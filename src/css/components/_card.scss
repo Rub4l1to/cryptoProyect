@@ -1,24 +1,25 @@
 .card {
+  @include flexbox(normal, flex-start, row);
   box-shadow: 3px 5px 2px 1px rgba(40, 42, 44, 0.315);
   width: 20%;
   margin: 2em;
-  background-color: #ffffff;
-  @include flexbox(normal, flex-start, row);
+  background-color: #f1f1f1;
   border-radius: 10px;
   padding: 10px 0;
   transition: all 300ms;
 
-  &:hover{
+  &:hover {
     transform: scale(1.1);
     cursor: pointer;
   }
 
-  &__img {
+  &__picture {
     width: 30%;
     @include flexbox(center, center);
-    img {
-      width: 60%;
-    }
+  }
+  
+  &__img {
+    width: 60%;
   }
 
   &__info {
@@ -30,7 +31,7 @@
   &__title {
     font-size: 1.8em;
   }
-  
+
   &__value {
     display: inline-block;
     font-size: 1.3em;

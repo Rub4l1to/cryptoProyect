@@ -15,8 +15,4 @@ body {
   box-sizing: border-box;
   color: $color-sixth;
   background-color: $color-primary;
-
-  @include respond(small-desktop) {
-    background-color: red;
-  }
 }

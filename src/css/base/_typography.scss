@@ -5,26 +5,31 @@ body {
 }
 
 .heading-primary {
-    margin-top: 10em;
+  margin-top: 10em;
+
+  // Hello
   &--main {
     font-size: 12rem;
     line-height: 1em;
   }
+
+  // Get real-time stock updates
   &--sub {
     font-size: 4em;
     color: $color-fifth;
     line-height: 1em;
     padding-left: 0.2em;
   }
+
+  // !
   &--blue {
-    //   display: block;
     color: $color-fourth;
   }
 }
+
 .heading-secondary {
-    margin-top: 2em;
+  margin-top: 2em;
   &--main {
     font-size: 10rem;
-    //   letter-spacing: 0.5rem;
   }
 }
