@@ -11,10 +11,11 @@ export const drawCard = (title, img, value) => {
   card__container.className = "card";
 
   // Container icono
-  let card__img = document.createElement("div");
-  card__img.className = "card__img";
+  let card__img = document.createElement("figure");
+  card__img.className = "card__picture";
 
   let img_selector = document.createElement("img");
+  img_selector.className = "card__img";
   img_selector.src = img;
   card__img.append(img_selector);
 
