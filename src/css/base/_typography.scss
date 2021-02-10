@@ -1,35 +1,50 @@
 body {
   font-family: $titles-font;
-  font-weight: 400;
-  line-height: 1.7;
 }
 
 .heading-primary {
-  margin-top: 10em;
 
-  // Hello
   &--main {
-    font-size: 12rem;
-    line-height: 1em;
+    font-size: 8rem;
+
+    @include respond(tab-port) {
+      font-size: 12rem;
+    }
+    @include respond(tab-land) {
+      font-size: 12.5rem;
+    }
+    @include respond(small-desktop) {
+      font-size: 12.8rem;
+    }
+    @include respond(big-desktop) {
+      font-size: 13rem;
+    }
   }
 
-  // Get real-time stock updates
-  &--sub {
-    font-size: 4em;
-    color: $color-fifth;
-    line-height: 1em;
-    padding-left: 0.2em;
-  }
-
-  // !
   &--blue {
     color: $color-fourth;
   }
 }
 
 .heading-secondary {
-  margin-top: 2em;
   &--main {
-    font-size: 10rem;
+    display: block;
+    width: 100%;
+    font-size: 5em;
+    padding: 0.5em 0 1.5em 0;
+    height: 80px;
+
+    @include respond(small-desktop) {
+      font-size: 7.5em;
+    }
+    @include respond(big-desktop) {
+      font-size: 8em;
+    }
+  }
+
+  &--sub {
+    font-size: 4em;
+    color: $color-fifth;
+    margin-left: .08em;
   }
 }

@@ -3,13 +3,24 @@
   @include flexbox(center, normal);
 
   &__logo-container {
-    width: $grid-width;
-    @include flexbox(normal, center);
-    padding: 4em 3em;
+    padding: 2em 0em;
   }
 
   &__logo {
     object-fit: cover;
-    width: 8em;
+    width: 50px;
+
+    @include respond(tab-port) {
+      width: 60px;
+    }
+    @include respond(tab-land) {
+      width: 70px;
+    }
+    @include respond(small-desktop) {
+      width: 75px;
+    }
+    @include respond(big-desktop) {
+      width: 80px;
+    }
   }
 }

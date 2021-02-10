@@ -1,62 +1,68 @@
-.section-home {
+.section-home, .section-details{
   @include flexbox(center, center, column);
+}
+
+.section-home {
+    // @include flexbox(center, center, column);
 
   &__titles {
     @include flexbox(center, normal, column);
-    margin: 5em 0 0 0;
   }
 
-  &__search {
-    margin: 5em 0 0 0.8em;
-    @include flexbox(normal, normal);
-  }
+  // &__search {
+  //   @include flexbox(normal, normal, column);
+  //   margin: 2em 0 0 0.6em;
+  // }
+
 }
 
-.coins {
-  @include flexbox(center, normal);
-  margin: -15em 0 0 5px;
+
+
+// .coins {
+//   @include flexbox(center, normal);
+//   margin: -15em 0 0 5px;
   
-  &__container {
-    width: $grid-width;
-    @include flexbox(space-between, normal);
-    flex-wrap: wrap;
-  }
-}
+//   &__container {
+//     width: 100%;
+//     @include flexbox(space-between, normal);
+//     flex-wrap: wrap;
+//   }
+// }
 
-.section-details {
-  width: 100%;
-  transform: skewY(5deg);
-  background-color: white;
-  margin-top: 10em;
-  padding: 5em 0 0em;
-  @include flexbox(center, normal);
+// .section-details {
+//   width: 100%;
+//   transform: skewY(5deg);
+//   background-color: white;
+//   margin-top: 10em;
+//   padding: 5em 0 0em;
+//   @include flexbox(center, normal);
 
-  &__graph,
-  &__info {
-    transform: skewY(-5deg);
-    padding-top: 2em;
-  }
+//   &__graph,
+//   &__info {
+//     transform: skewY(-5deg);
+//     padding-top: 2em;
+//   }
 
-  &__img {
-    width: 100%;
-  }
+//   &__img {
+//     width: 100%;
+//   }
 
-  &__info {
-    @include flexbox(flex-start, flex-start, column);
-  }
+//   &__info {
+//     @include flexbox(flex-start, flex-start, column);
+//   }
 
-  &__line {
-    display: block;
-    width: 80%;
-    height: 2px;
-    background-color: $color-sixth;
-    margin: -2em 0 0 1em;
-  }
-  &__paragraph {
-    width: 80%;
-    margin: 2em 0 0 0.5em;
-    font-size: 2em;
-    font-family: $texts-font;
-    letter-spacing: 0.1em;
-  }
-}
+//   &__line {
+//     display: block;
+//     width: 80%;
+//     height: 2px;
+//     background-color: $color-sixth;
+//     margin: -2em 0 0 1em;
+//   }
+//   &__paragraph {
+//     width: 80%;
+//     margin: 2em 0 0 0.5em;
+//     font-size: 2em;
+//     font-family: $texts-font;
+//     letter-spacing: 0.1em;
+//   }
+// }

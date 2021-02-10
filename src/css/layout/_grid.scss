@@ -1,11 +1,38 @@
 .row {
-  @include flexbox(space-evenly, normal);
-  width: $grid-width;
+  @include flexbox(space-evenly, normal, column);
+
+  @include respond(tab-land) {
+    @include flexbox(space-evenly, normal);
+  }
+  @include respond(small-desktop) {
+    @include flexbox(space-evenly, normal);
+  }
+  @include respond(big-desktop) {
+    @include flexbox(space-evenly, normal);
+  }
 
   .col-1-of-2 {
-    width: calc((100% - #{$gutter-horizontal}) / 2);
+    height: 20vh;
+    width: calc((100%));
+
+    @include respond(tab-land) {
+      width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+    @include respond(small-desktop) {
+      width: calc((100% - #{$gutter-horizontal}) / 2);
+      // background-color: black;
+    }
   }
   .col-1-of-1 {
-    width: calc((100% - 3em));
+    height: 20vh;
+    width: calc((100%));
+
+    @include respond(tab-land) {
+      width: calc((100% - #{$gutter-vertical}));
+    }
+    @include respond(small-desktop) {
+      width: calc((100% - #{$gutter-vertical}));
+      // background-color: black;
+    }
   }
 }
