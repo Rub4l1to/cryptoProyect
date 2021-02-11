@@ -1,21 +1,3 @@
 .container {
   @include width($grid-width, $grid-width-max);
 }
-
-// .typed-container {
-//   // height: 80px;
-//   // padding: 0;
-
-//   @include respond(tab-port) {
-//     height: auto;
-//   }
-//   @include respond(tab-land) {
-//     height: auto;
-//   }
-//   @include respond(small-desktop) {
-//     height: auto;
-//   }
-//   @include respond(big-desktop) {
-//     height: auto;
-//   }
-// }
