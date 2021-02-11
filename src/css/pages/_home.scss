@@ -1,68 +1,123 @@
-.section-home, .section-details{
-  @include flexbox(center, center, column);
-}
-
 .section-home {
-    // @include flexbox(center, center, column);
+  height: 100vh;
+  width: 100%;
+
+  @include respond(phone) {
+    height: 90vh;
+  }
+  @include respond(tab-land) {
+    height: 80vh;
+  }
+
+  @include flexbox(normal, center, column);
 
   &__titles {
     @include flexbox(center, normal, column);
   }
 
-  // &__search {
-  //   @include flexbox(normal, normal, column);
-  //   margin: 2em 0 0 0.6em;
-  // }
+  &__search {
+    @include flexbox(normal, normal, column);
+    width: 100%;
+    margin: 2em 0 0 0;
 
+    @include respond(tab-port) {
+      @include flexbox(normal, normal);
+    }
+  }
 }
 
+.coins {
+  @include flexbox(center, center);
+  width: 100%;
+  padding: 0 1.5em;
+  @include respond(tab-land) {
+    margin-top: -8em;
+  }
 
+  @include respond(small-desktop) {
+    margin-top: -12em;
+  }
+  @include respond(big-desktop) {
+    height: auto;
+  }
 
-// .coins {
-//   @include flexbox(center, normal);
-//   margin: -15em 0 0 5px;
-  
-//   &__container {
-//     width: 100%;
-//     @include flexbox(space-between, normal);
-//     flex-wrap: wrap;
-//   }
-// }
+  &__container {
+    @include flexbox(center, center);
+    width: 100%;
+    flex-wrap: wrap;
 
-// .section-details {
-//   width: 100%;
-//   transform: skewY(5deg);
-//   background-color: white;
-//   margin-top: 10em;
-//   padding: 5em 0 0em;
-//   @include flexbox(center, normal);
+    @include respond(phone) {
+      @include flexbox(space-between, center);
+    }
+  }
+}
 
-//   &__graph,
-//   &__info {
-//     transform: skewY(-5deg);
-//     padding-top: 2em;
-//   }
+.section-details {
+  @include flexbox(center, center);
+  transform: skewY(5deg);
+  background-color: white;
+  margin: 50em 0 5em 0;
+  padding: 5em 0em;
 
-//   &__img {
-//     width: 100%;
-//   }
+  @include respond(phone) {
+    margin: 0;
+  }
+  @include respond(tab-port) {
+    margin-top: 10em;
+  }
 
-//   &__info {
-//     @include flexbox(flex-start, flex-start, column);
-//   }
+  @include respond(tab-land) {
+    margin: 20;
+  }
+  .section-details__apart {
+    &--1 {
+      order: 1;
+      @include respond(tab-land) {
+        order: 2;
+      }
+    }
 
-//   &__line {
-//     display: block;
-//     width: 80%;
-//     height: 2px;
-//     background-color: $color-sixth;
-//     margin: -2em 0 0 1em;
-//   }
-//   &__paragraph {
-//     width: 80%;
-//     margin: 2em 0 0 0.5em;
-//     font-size: 2em;
-//     font-family: $texts-font;
-//     letter-spacing: 0.1em;
-//   }
-// }
+    &--2 {
+      order: 2;
+      @include respond(tab-land) {
+        order: 1;
+      }
+    }
+  }
+
+  &__graph,
+  &__info {
+    @include flexbox(center, center, column);
+    transform: skewY(-5deg);
+    padding-top: 2em;
+  }
+
+  &__img {
+    width: 100%;
+    display: none;
+    @include respond(tab-port) {
+      display: block;
+    }
+  }
+
+  &__title-container {
+    margin: 0 0 4em 0;
+  }
+
+  &__line {
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    margin-top: 1em;
+    background-color: $color-sixth;
+  }
+  &__paragraph {
+    width: 80%;
+    margin: 0em 0 1em 0;
+    font-size: 2em;
+    font-family: $texts-font;
+    line-height: 1.4em;
+    letter-spacing: 0.02em;
+    text-align: justify;
+  }
+}

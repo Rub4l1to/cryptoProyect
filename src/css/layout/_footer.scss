@@ -1,6 +1,7 @@
 .footer {
+
   @include flexbox(center, center);
-  margin-top: 15em;
+  margin-top: 10em;
   width: 100%;
   padding: 4em 0;
   background-color: $color-sixth;

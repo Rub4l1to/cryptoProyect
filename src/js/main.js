@@ -12,7 +12,7 @@ export async function main() {
 
 // Events
 window.onload = async () => {
-  // drawCards(await getList(url));
+  drawCards(await getList(url));
   typed(await getList(url));
   new SlimSelect({ select: "#country" });
 };
