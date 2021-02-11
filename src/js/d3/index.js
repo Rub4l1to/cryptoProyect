@@ -4,7 +4,7 @@ import * as d3 from "d3"
 const xAccessor = d => parseDate(d.Date)
 const parseDate = d3.timeParse("%Y-%m-%d")
 const yAccessor = d => parseFloat(d["Closing Price (USD)"])
-let tooltip = document.querySelector('.tooltip')
+const tooltip = document.querySelector(".tooltip")
 const numberFormat = d3.format(".4r")
 const formatTime = d3.timeFormat("%d-%m-%y")
 
@@ -37,13 +37,13 @@ async function call(){
     // const dataset2 = coinsData["ethereum"]
     const lineGraph = LineGraph(".section-details__graph")
     lineGraph.build()
-    let button = document.querySelector(".btn_bitcoin")
+    lineGraph.loadGraph(dataset)
+    //let button = document.querySelector(".btn_bitcoin")
     // button2 = document.querySelector(".button2")
-    button.onclick = () => lineGraph.loadGraph(dataset)
+    // button.onclick = () => lineGraph.loadGraph(dataset)
     // button2.onclick = () => lineGraph.loadGraph(dataset2)
 }
 
-call()
 
 function LineGraph(container){
 
@@ -52,8 +52,9 @@ function LineGraph(container){
     let wrapper 
 
     function build(){
+        
     // crear el svg
-    // calculart los anchos del elemento div
+    // calcular los anchos del elemento div
     // y en general lo que hay que hacer una sola vez
         wrapper = d3.select(container)
         .append("svg")
@@ -92,22 +93,22 @@ function LineGraph(container){
             .attr("stroke", "#2B3FCC")
             .attr("stroke-width", "3")
             .call(transition)
-            .on("mousemove", (ev) => {
+
+        line.on("mousemove", (ev) => {
                 line.attr("stroke-width", "4")
                     .attr("opacity", "0.2")
-                    console.log(ev)
                     const graphX = ev.offsetX - dimensions.margins.left
                     const graphY = ev.offsetY - dimensions.margins.top
-
                     tooltip.innerHTML = `
                 <b>${numberFormat(yScale.invert(graphY))}$</b> <br>
                    ${formatTime(xScale.invert(graphX))}`
                 tooltip.classList.remove("hidden")})
-            .on("touchend mouseleave", (ev) => {
+
+        line.on("touchend mouseleave", (ev) => {
                 line.attr("stroke-width", "3")
                     .attr("opacity", "100%")
                     tooltip.classList.add("hidden")
-                    tooltip.style.top = ev.x
+                    tooltip.style.top = ev.x + 4
                     tooltip.style.left = ev.y
                 })
         
