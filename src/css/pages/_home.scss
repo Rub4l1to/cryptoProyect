@@ -1,14 +1,5 @@
 .section-home {
-  // height: 100vh;
   width: 100%;
-
-  @include respond(phone) {
-    height: 90vh;
-  }
-  @include respond(tab-land) {
-    height: 80vh;
-  }
-
   @include flexbox(normal, center, column);
 
   &__titles {
@@ -29,7 +20,6 @@
 .coins {
   @include flexbox(center, center);
   width: 100%;
-  // margin-top: -10em;
   padding: 0 1.5em;
   @include respond(tab-land) {
     margin-top: -8em;
