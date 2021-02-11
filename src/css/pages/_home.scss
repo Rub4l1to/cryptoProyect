@@ -29,6 +29,7 @@
 .coins {
   @include flexbox(center, center);
   width: 100%;
+  margin-bottom: 20em;
   padding: 0 1.5em;
   @include respond(tab-land) {
     margin-top: -8em;
