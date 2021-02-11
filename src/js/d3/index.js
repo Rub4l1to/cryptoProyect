@@ -94,24 +94,29 @@ function LineGraph(container){
             .attr("stroke-width", "3")
             .call(transition)
 
-        line.on("mousemove", (ev) => {
+            .on("mousemove", (ev) => {
                 line.attr("stroke-width", "4")
                     .attr("opacity", "0.2")
                     const graphX = ev.offsetX - dimensions.margins.left
                     const graphY = ev.offsetY - dimensions.margins.top
+        
                     tooltip.innerHTML = `
                 <b>${numberFormat(yScale.invert(graphY))}$</b> <br>
                    ${formatTime(xScale.invert(graphX))}`
                 tooltip.classList.remove("hidden")})
-
-        line.on("touchend mouseleave", (ev) => {
+            .on("touchend mouseleave", (ev) => {
                 line.attr("stroke-width", "3")
                     .attr("opacity", "100%")
                     tooltip.classList.add("hidden")
-                    tooltip.style.top = ev.x + 4
+                    tooltip.style.top = ev.x
                     tooltip.style.left = ev.y
                 })
         
+
+                
+
+
+
         //Animate line
         function transition(path) {
             path.transition()
