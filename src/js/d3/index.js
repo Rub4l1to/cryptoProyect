@@ -29,8 +29,6 @@ dimensions.boundedHeight = dimensions.height
 - dimensions.margins.top
 - dimensions.margins.bottom
 
-console.log(dimensions.width)
-
 async function call(){
     const coinsData = {
         "bitcoin": await d3.csv("./src/data/bitcoin.csv"),
