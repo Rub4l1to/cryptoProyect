@@ -38,3 +38,8 @@ export const drawCard = (title, img, value) => {
 
   document.querySelector("#coins__container").appendChild(card__container);
 };
+
+export const printOptions = (data) => {
+  console.log(data)
+  
+}

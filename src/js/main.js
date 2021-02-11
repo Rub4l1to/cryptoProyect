@@ -1,5 +1,5 @@
 import { typed } from "./utils/index";
-import { drawCards } from "./functions/index";
+import { drawCards, printOptions } from "./functions/index";
 import { getList } from "./querys/index";
 import SlimSelect from "slim-select";
 
@@ -13,6 +13,7 @@ export async function main() {
 // Events
 window.onload = async () => {
   drawCards(await getList(url));
+  printOptions(await getList(url));
   typed(await getList(url));
   new SlimSelect({ select: "#country" });
 };
