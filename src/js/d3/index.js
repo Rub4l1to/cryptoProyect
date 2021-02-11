@@ -6,13 +6,14 @@ const xAccessor = d => parseDate(d.Date)
 const parseDate = d3.timeParse("%Y-%m-%d")
 const yAccessor = d => parseFloat(d["Closing Price (USD)"])
 const tooltip = document.querySelector(".tooltip")
+const parent = d3.select(".section-details__graph")
 const numberFormat = d3.format(".4r")
 const formatTime = d3.timeFormat("%d-%m-%y")
 
 
 //Set dimensions
 let dimensions = {
-    width: 700,
+    width: parent.node().offsetWidth,
     height: 400,
     margins: {
         top: 30,
@@ -28,6 +29,8 @@ dimensions.boundedHeight = dimensions.height
 - dimensions.margins.top
 - dimensions.margins.bottom
 
+console.log(dimensions.width)
+
 async function call(){
     const coinsData = {
         "bitcoin": await d3.csv("./src/data/bitcoin.csv"),
@@ -39,8 +42,6 @@ async function call(){
     const lineGraph = LineGraph(".section-details__graph")
     lineGraph.build()
     lineGraph.loadGraph(dataset)
-
-    select = document.querySelector("coins")
     
     //let button = document.querySelector(".btn_bitcoin")
     // button2 = document.querySelector(".button2")
