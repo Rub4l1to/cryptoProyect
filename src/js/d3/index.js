@@ -1,4 +1,5 @@
 import * as d3 from "d3"
+import { select } from "d3"
 
 //Set accessor and parse data
 const xAccessor = d => parseDate(d.Date)
@@ -38,6 +39,9 @@ async function call(){
     const lineGraph = LineGraph(".section-details__graph")
     lineGraph.build()
     lineGraph.loadGraph(dataset)
+
+    select = document.querySelector("coins")
+    
     //let button = document.querySelector(".btn_bitcoin")
     // button2 = document.querySelector(".button2")
     // button.onclick = () => lineGraph.loadGraph(dataset)
