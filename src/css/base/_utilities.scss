@@ -1,0 +1,3 @@
+.container {
+  @include width($grid-width, $grid-width-max);
+}

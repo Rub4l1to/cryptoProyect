@@ -1,0 +1,124 @@
+.section-home {
+  height: 100vh;
+  width: 100%;
+
+  @include respond(phone) {
+    height: 90vh;
+  }
+  @include respond(tab-land) {
+    height: 80vh;
+  }
+
+  @include flexbox(normal, center, column);
+
+  &__titles {
+    @include flexbox(center, normal, column);
+  }
+
+  &__search {
+    @include flexbox(normal, normal, column);
+    width: 100%;
+    margin: 2em 0 0 0;
+
+    @include respond(tab-port) {
+      @include flexbox(normal, normal);
+    }
+  }
+}
+
+.coins {
+  @include flexbox(center, center);
+  width: 100%;
+  margin-bottom: 20em;
+  padding: 0 1.5em;
+  @include respond(tab-land) {
+    margin-top: -8em;
+  }
+
+  @include respond(small-desktop) {
+    margin-top: -12em;
+  }
+  @include respond(big-desktop) {
+    height: auto;
+  }
+
+  &__container {
+    @include flexbox(center, center);
+    width: 100%;
+    flex-wrap: wrap;
+
+    @include respond(phone) {
+      @include flexbox(space-between, center);
+    }
+  }
+}
+
+.section-details {
+  @include flexbox(center, center);
+  transform: skewY(5deg);
+  background-color: white;
+  margin: 50em 0 5em 0;
+  padding: 5em 0em;
+
+  @include respond(phone) {
+    margin: 0;
+  }
+  @include respond(tab-port) {
+    margin-top: 10em;
+  }
+
+  @include respond(tab-land) {
+    margin: 20;
+  }
+  .section-details__apart {
+    &--1 {
+      order: 1;
+      @include respond(tab-land) {
+        order: 2;
+      }
+    }
+
+    &--2 {
+      order: 2;
+      @include respond(tab-land) {
+        order: 1;
+      }
+    }
+  }
+
+  &__graph,
+  &__info {
+    @include flexbox(center, center, column);
+    transform: skewY(-5deg);
+    padding-top: 2em;
+  }
+
+  &__img {
+    width: 100%;
+    display: none;
+    @include respond(tab-port) {
+      display: block;
+    }
+  }
+
+  &__title-container {
+    margin: 0 0 4em 0;
+  }
+
+  &__line {
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    margin-top: 1em;
+    background-color: $color-sixth;
+  }
+  &__paragraph {
+    width: 80%;
+    margin: 0em 0 1em 0;
+    font-size: 2em;
+    font-family: $texts-font;
+    line-height: 1.4em;
+    letter-spacing: 0.02em;
+    text-align: justify;
+  }
+}
