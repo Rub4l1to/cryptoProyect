@@ -109,15 +109,25 @@
     margin-top: 1em;
     background-color: $color-sixth;
   }
-  &__paragraph {
+  &__details {
     width: 80%;
     margin: 0em 0 1em 0;
-    font-size: 2em;
+    font-size: 5em;
     font-family: $texts-font;
-    line-height: 1.4em;
-    letter-spacing: 0.02em;
-    text-align: justify;
+    text-align: center;
   }
+
+  &__price {
+    font-weight: 700;
+  }
+
+  &__percentage {
+    font-weight: 400;
+    color: green;
+    padding: 0px 15px;
+  }
+
+
   &__graph{
     display: none;
     @include respond(phone){

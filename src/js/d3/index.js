@@ -38,8 +38,10 @@ async function call(){
     const dataset = coinsData["bitcoin"]
     // const dataset2 = coinsData["ethereum"]
     const lineGraph = LineGraph(".section-details__graph")
+    lineGraph.clear()
     lineGraph.build()
     lineGraph.loadGraph(dataset)
+    
     
     //let button = document.querySelector(".btn_bitcoin")
     // button2 = document.querySelector(".button2")
@@ -67,8 +69,7 @@ function LineGraph(container){
         }
 
     function loadGraph(dataset){
-        if(initialized) clear()
-        initialized = true
+        initialized = true  
 
 
         bounds = wrapper.append("g")
@@ -110,16 +111,11 @@ function LineGraph(container){
             .on("touchend mouseleave", (ev) => {
                 line.attr("stroke-width", "3")
                     .attr("opacity", "100%")
-                    tooltip.classList.add("hidden")
-                    tooltip.style.top = ev.x
-                    tooltip.style.left = ev.y
+                    //tooltip.classList.add("hidden")
+                    tooltip.style.top = ev.pageY + "px"
+                    tooltip.style.left = ev.pageX + "px"
                 })
         
-
-                
-
-
-
         //Animate line
         function transition(path) {
             path.transition()
@@ -191,10 +187,12 @@ function LineGraph(container){
     
 
     function clear(){
-         bounds.remove()
+
+        document.querySelector(".section-details__graph").innerHTML = "" 
+        if(bounds) bounds.remove()
     }
 
-    return {build, loadGraph}
+    return {build, loadGraph, clear}
 }
 
 export {call, LineGraph}
