@@ -1,6 +1,6 @@
 .section-home {
-  width: 100%;
-  @include flexbox(normal, center, column);
+  margin: 5em 0;
+  @include flexbox(center, center, column);
 
   &__titles {
     @include flexbox(center, normal, column);
@@ -19,17 +19,14 @@
 
 .coins {
   @include flexbox(center, center);
-  width: 100%;
+
   padding: 0 1.5em;
   @include respond(tab-land) {
     margin-top: -8em;
   }
 
   @include respond(small-desktop) {
-    margin-top: -12em;
-  }
-  @include respond(big-desktop) {
-    // height: auto;
+    margin-top: -10em;
   }
 
   &__container {
@@ -44,15 +41,13 @@
 }
 
 .section-details {
-  // height: 40vh
   @include flexbox(center, center);
-  // transform: skewY(5deg);
   background-color: white;
   margin-top: 4em;
   padding: 5em 0em;
 
   @include respond(phone) {
-    margin-top: 8em ;
+    margin-top: 8em;
   }
   @include respond(tab-port) {
     margin-top: 12em;
@@ -81,12 +76,9 @@
     }
   }
 
- 
-
   &__graph,
   &__info {
     @include flexbox(center, center, column);
-    // transform: skewY(-5deg);
     padding-top: 2em;
   }
 
@@ -127,10 +119,9 @@
     padding: 0px 15px;
   }
 
-
-  &__graph{
+  &__graph {
     display: none;
-    @include respond(phone){
+    @include respond(phone) {
       display: block;
     }
   }
