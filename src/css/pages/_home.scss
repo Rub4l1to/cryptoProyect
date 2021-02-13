@@ -2,6 +2,11 @@
   margin: 5em 0;
   @include flexbox(center, center, column);
 
+  @include respond(small-desktop) {
+    // margin-top: -1em;
+    margin: 0em 0;
+  }
+
   &__titles {
     @include flexbox(center, normal, column);
   }
@@ -26,7 +31,7 @@
   }
 
   @include respond(small-desktop) {
-    margin-top: -10em;
+    margin-top: -18em;
   }
 
   &__container {
@@ -82,47 +87,54 @@
     padding-top: 2em;
   }
 
-  &__img {
-    width: 100%;
-    display: none;
-    @include respond(tab-port) {
-      display: block;
-    }
-  }
-
-  &__title-container {
-    margin: 0 0 4em 0;
-  }
-
-  &__line {
-    display: inline-block;
-    width: 100%;
-    height: 2px;
-    margin-top: 1em;
-    background-color: $color-sixth;
-  }
-  &__details {
-    width: 80%;
-    margin: 0em 0 1em 0;
-    font-size: 5em;
-    font-family: $texts-font;
-    text-align: center;
-  }
-
-  &__price {
-    font-weight: 700;
-  }
-
-  &__percentage {
-    font-weight: 400;
-    color: green;
-    padding: 0px 15px;
-  }
-
   &__graph {
     display: none;
     @include respond(phone) {
       display: block;
     }
   }
+  &__title-container {
+    margin: 0 0 4em 0;
+    @include flexbox(center, center, column);
+  }
+
+  &__line {
+    display: inline-block;
+    width: 60%;
+    height: 2px;
+    margin-top: 1em;
+    background-color: $color-sixth;
+  }
+
+  &__percentage-container,
+  &__price-container {
+    padding: 3em 0;
+    @include flexbox(center, center, column);
+  }
+
+  &__value {
+    font-size: 3em;
+    margin-bottom: 1em;
+
+    @include respond(small-desktop) {
+      font-size: 4em;
+    }
+    @include respond(big-desktop) {
+      font-size: 5em;
+    }
+  }
+
+  &__percentage {
+    &--positive {
+      color: rgb(52, 218, 52);
+    }
+    &--negative {
+      color: rgb(248, 42, 42);
+    }
+  }
+
+  &__price {
+    font-weight: 700;
+  }
+
 }
