@@ -1,9 +1,0 @@
-.container {
-  @include width($grid-width, $grid-width-max);
-}
-.hide{
-  display: none !important;
-}
-.show{
-  display: block;
-}
