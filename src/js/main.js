@@ -1,25 +1,28 @@
-import { typed } from "./utils/index";
-import { drawCards, printOptions, printInfo, printGraph } from "./functions/index";
-import { getList } from "./querys/index";
+// General imports
 import SlimSelect from "slim-select";
-import { getCoins_List, getCoins_Single } from '../configs/urls'
-import { drawSection } from "./models";
 
-export async function main() {
-  // printGraph();
-}
+// Functional imports
+import { typed } from "./utils/index";
+import { drawCards, printOptions, printInfo } from "./functions/index";
+import { getList } from "./querys/index";
+import { getCoins_List, getCoins_Single } from '../configs/urls';
+
+export async function main() {}
 
 // Events
 window.onload = async () => {
+  // Hacemos la petición y pintamos las tarjetas
   drawCards(await getList(getCoins_List));
+  // Hacemos la petición y pintamos las opciones
   printOptions(await getList(getCoins_List));
+  // Hacemos la petición y pintamos las monedas con typed
   typed(await getList(getCoins_List));
+  // Seleccion del select que utilizará typed
   new SlimSelect({ select: "#coins" });
 };
 
 document.querySelector('.btn').addEventListener("click", async () => {
   const x = document.querySelector("#coins").value
-  if (x === "XRP" || x === "Binance Coin") printInfo(await getList(getCoins_Single + x))
+  // Si selecciona alguna opción realizará un petición de los detalles de la moneda
   if (x !== "") printInfo(await getList(getCoins_Single + x.toLowerCase()))
-  window.scrollTo(0, 800)
 })

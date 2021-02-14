@@ -1,6 +1,8 @@
+// Recibira un json y devolvera otro array con los nombres
 export const getDataName = (data) => 
     data.reduce((acc, element) => [...acc, `<i>${element.name}</i>`], []); 
 
+// Recibe un json y extraemos los datos para el modelo de la tarjeta
 export const readArray = (data, func) => {
     data.map((item) => {
         const { id, name, image, current_price } = item;
@@ -8,8 +10,8 @@ export const readArray = (data, func) => {
     });
 }
 
+// Recibe un json y extraemos los datos para el modelo de la section
 export const readDetails = (data, func) => {
         const { name,links, market_data } = data;
         func( name,links, market_data );
 }
-

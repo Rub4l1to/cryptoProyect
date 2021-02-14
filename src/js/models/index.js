@@ -1,3 +1,6 @@
+import { printGraph } from "../functions";
+
+// Modelo de tarjeta
 export const drawCard = (id, name, image, current_price) => {
   // Container padre
   let card__container = document.createElement("div");
@@ -32,109 +35,35 @@ export const drawCard = (id, name, image, current_price) => {
   document.querySelector("#coins__container").appendChild(card__container);
 };
 
+// Modelo de opcion
 export const drawOption = (id, name) => {
-  let option = document.createElement("option")
+  let option = document.createElement("option");
   option.value = id;
   option.innerHTML = name;
-
   document.querySelector("#coins").appendChild(option);
 };
 
+// Modelo de section details
 export const drawInfo = (name, links, market_data) => {
+  const section_details = document.querySelector(".section-details");
+  const title_details = document.querySelector("#title-details");
+  const details_price = document.querySelector("#section-details__price");
+  const percentage = document.querySelector("#subtitle-details__percentage");
 
-  // const section_details = document.createElement("section");
-  // section_details.className = "section-details";
+  // Insertamos los valores en las capas
+  section_details.className = "section-details show";
+  title_details.innerHTML = name;
+  details_price.innerHTML = `${market_data.current_price.eur.toFixed(0)} $`;
+  percentage.innerHTML = `${market_data.price_change_percentage_24h.toFixed(2)} %`;
+  document.querySelector("#link").href = links.homepage[0];
 
-  // const row = document.createElement("div");
-  // row.className = "row container";
+  // En caso de que el porcentaje sea positivo se pondra en verde o rojo
+  if (market_data.price_change_percentage_24h.toFixed(2) > 0)
+    percentage.className = "section-details__percentage--positive";
+  else percentage.className = "section-details__percentage--negative";
 
-  // const apart_1 = document.createElement("div");
-  // apart_1.className = "col-1-of-2 section-details__apart--1";
-
-  // const info = document.createElement("div");
-  // info.className = "section-details__info";
-  
-  // const title_container = document.createElement("div");
-  // title_container.className = "section-details__title-container";
-
-  // const title_details = document.createElement("h3");
-  // title_details.className = "heading-terciary--main";
-  // title_details.innerHTML = `${name}`;
-
-  // const line =  document.createElement("span");
-  // line.className = "section-details__line";
-
-  // title_container.appendChild(title_details);
-  // title_container.appendChild(line)
-
-  // const row2 = document.createElement("div");
-  // row2.className = "row-row container";
-
-  // const col_1 = document.createElement("div");
-  // col_1.className = "col-1-of-2 ";
-
-  // const price_container = document.createElement("div");
-  // price_container.className = "section-details__price-container";
-  // price_container.innerHTML = "Price";
-
-  // const price_header = document.createElement("p");
-  // price_header.className = "heading-terciary--sub";
-
-  // const price_sub = document.createElement("span");
-  // price_sub.className = "section-details__price";
-  // price_sub.innerHTML = `${market_data.current_price.eur.toFixed(2)} $`;
-
-  // price_container.appendChild(price_header);
-  // price_container.appendChild(price_sub);
-  // col_1.appendChild(price_container);
-  // row.appendChild(col_1)
-
-  // const col_2 = document.createElement("div");
-  // col_2.className = "col-1-of-2 ";
-  
-  // console.log(row)
-
-
-  // document.querySelector("main").appendChild(section_details);
-
-//   document.querySelector(".section-details__price").innerHTML = 
-//   document.querySelector("#subtitle-details").innerHTML = market_data.price_change_percentage_24h.toFixed(2)
-//   document.querySelector("#link").href = links.homepage[0]
-// }
-
-}
-
-  // <section class="section-details ">
-  //           <div class="row container">
-  //               <div class="col-1-of-2 section-details__apart--1">
-  //                   <article class="section-details__info">
-  //                       <div class="section-details__title-container">
-  //                           <h3 class="heading-terciary--main" id="title-details"></h3>
-  //                           <span class="section-details__line"></span>
-  //                       </div>
-
-
-  //                       <div class="row--row container">
-  //                           <div class="col-1-of-2">
-  //                               <div class="section-details__price-container">
-  //                                   <h5 class="section-details__value">Price</h5>
-  //                                   <p class="heading-terciary--sub"><span class="section-details__price "></span> $</p>
-  //                               </div>
-  //                           </div>
-  //                           <div class="col-1-of-2">
-  //                               <div class="section-details__percentage-container">
-  //                                   <h5 class="section-details__value">Variation</h5>
-  //                                   <p class="heading-terciary--sub section-details__percentage--positive"><span id="subtitle-details"></span> %</p>
-  //                               </div>
-  //                           </div>
-  //                       </div>
-  //                       <a id="link" class="btn btn-submit--2" href="#" target="_blank">Conseguir monedas </a>
-  //                   </article>
-  //               </div>
-  //               <div class="col-1-of-2 section-details__apart--2">
-  //                   <div class="tooltip hidden"></div>
-  //                   <figure class="section-details__graph"></figure>
-  //               </div>
-  //           </div>
-  //       </section>
-  
+  // Pintamos el gráfico
+  printGraph();
+  // Hacemos un scroll automatico
+  window.scrollTo(0, 1000);
+};

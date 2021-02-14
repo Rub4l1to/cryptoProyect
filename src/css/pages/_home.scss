@@ -48,7 +48,7 @@
 .section-details {
   @include flexbox(center, center);
   background-color: white;
-  margin-top: 4em;
+  margin: 4em 0 10em 0;
   padding: 5em 0em;
 
   @include respond(phone) {
@@ -113,15 +113,10 @@
   }
 
   &__value {
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 1em;
 
-    @include respond(small-desktop) {
-      font-size: 4em;
-    }
-    @include respond(big-desktop) {
-      font-size: 5em;
-    }
+    
   }
 
   &__percentage {
