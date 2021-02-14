@@ -35,14 +35,18 @@ async function call(){
         "ethereum": await d3.csv("./src/data/ethereum.csv"),
     }
 
-    const dataset = coinsData["bitcoin"]
+    const value = document.querySelector("#coins").value
+    const dataset = coinsData[value]
     // const dataset2 = coinsData["ethereum"]
     const lineGraph = LineGraph(".section-details__graph")
     lineGraph.clear()
     lineGraph.build()
     lineGraph.loadGraph(dataset)
     
-    
+    const x = document.querySelector("#coins").value
+    console.log(x)
+
+
     //let button = document.querySelector(".btn_bitcoin")
     // button2 = document.querySelector(".button2")
     // button.onclick = () => lineGraph.loadGraph(dataset)
