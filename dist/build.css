@@ -407,7 +407,7 @@ b {
       margin-top: -16em; } }
   @media only screen and (min-width: 112.5em) {
     .coins {
-      margin-top: -12em; } }
+      margin-top: -14em; } }
   .coins__container {
     display: flex;
     justify-content: center;
