@@ -4,6 +4,9 @@
   @include respond(tab-land) {
     @include flexbox(space-evenly, normal);
   }
+  &--row{
+    @include flexbox(space-evenly, normal);
+  }
 
   .col-1-of-2 {
     width: calc((100%));

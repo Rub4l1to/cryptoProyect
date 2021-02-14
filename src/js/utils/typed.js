@@ -1,5 +1,6 @@
 import { getDataName } from "./index";
 
+// Configuración de typed
 export const typed = (coins) => {
     return new Typed(".typed", {
       strings: getDataName(coins),
