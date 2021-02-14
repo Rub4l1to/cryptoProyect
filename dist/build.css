@@ -373,7 +373,7 @@ b {
   flex-direction: column; }
   @media only screen and (min-width: 87.5em) {
     .section-home {
-      margin: 0em 0; } }
+      margin: 0; } }
   .section-home__titles {
     display: flex;
     justify-content: center;
@@ -404,7 +404,7 @@ b {
       margin-top: -8em; } }
   @media only screen and (min-width: 87.5em) {
     .coins {
-      margin-top: -15em; } }
+      margin-top: -14em; } }
   @media only screen and (min-width: 112.5em) {
     .coins {
       margin-top: -12em; } }

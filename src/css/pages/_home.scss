@@ -3,7 +3,7 @@
   @include flexbox(center, center, column);
 
   @include respond(small-desktop) {
-    margin: 0em 0;
+    margin: 0;
   }
 
   &__titles {
@@ -30,7 +30,7 @@
   }
 
   @include respond(small-desktop) {
-    margin-top: -15em;
+    margin-top: -14em;
   }
 
   @include respond(big-desktop) {
