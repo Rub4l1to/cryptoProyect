@@ -31,7 +31,11 @@
   }
 
   @include respond(small-desktop) {
-    margin-top: -16em;
+    margin-top: -15em;
+  }
+  
+  @include respond(big-desktop) {
+    margin-top: -12em;
   }
 
   &__container {
