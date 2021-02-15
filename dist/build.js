@@ -56,7 +56,6 @@ function call() {
 function _call() {
   _call = _asyncToGenerator(function* () {
     var select = document.querySelector("#coins").value;
-    console.log(select);
     var coinsData = {
       bitcoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv"),
       ethereum: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/ethereum.csv"),

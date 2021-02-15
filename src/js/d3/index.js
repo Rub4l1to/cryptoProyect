@@ -12,7 +12,6 @@ const formatTime = d3.timeFormat("%d-%m-%y")
 
 async function call() {
   const select = document.querySelector("#coins").value
-  console.log(select)
   const coinsData = {
     bitcoin: await d3.csv("./src/data/bitcoin.csv"),
     ethereum: await d3.csv("./src/data/ethereum.csv"),
