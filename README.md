@@ -1,4 +1,4 @@
-# Cryto Proyect
+# Crypto Proyect
 ## Api 
 - https://coinlayer.com/documentation
 
