@@ -1,0 +1,11 @@
+.composition {
+  display: none;
+
+  @include respond(tab-land) {
+    display: block;
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

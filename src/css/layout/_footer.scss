@@ -1,0 +1,27 @@
+.footer {
+  @include flexbox(center, center);
+  margin-top: 10em;
+  width: 100%;
+  padding: 4em 0;
+
+  background-color: $color-sixth;
+
+  p {
+    font-size: 1.2em;
+    color: #f1f1f1;
+    padding-left: 1em;
+
+    @include respond(tab-port) {
+      font-size: 1.4em;
+    }
+    @include respond(tab-land) {
+      font-size: 1.6em;
+    }
+    @include respond(small-desktop) {
+      font-size: 1.8em;
+    }
+    @include respond(big-desktop) {
+      font-size: 2em;
+    }
+  }
+}
