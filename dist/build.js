@@ -63,7 +63,8 @@ function _call() {
       litecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/litecoin.csv"),
       tether: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/tether.csv"),
       ripple: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/XRP.csv"),
-      binancecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv")
+      binancecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv"),
+      polkadot: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv")
     };
     var dataset = coinsData[select];
     var lineGraph = LineGraph(".section-details__graph");
