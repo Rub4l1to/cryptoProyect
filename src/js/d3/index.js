@@ -19,6 +19,7 @@ async function call() {
     litecoin: await d3.csv("./src/data/litecoin.csv"),
     tether: await d3.csv("./src/data/tether.csv"),
     ripple: await d3.csv("./src/data/XRP.csv"),
+    binancecoin: await d3.csv("./src/data/bitcoin.csv"),
   };
 
   const dataset = coinsData[select];
