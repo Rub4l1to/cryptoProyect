@@ -63,7 +63,8 @@ function _call() {
       litecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/litecoin.csv"),
       tether: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/tether.csv"),
       ripple: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/XRP.csv"),
-      binancecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv")
+      binancecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv"),
+      polkadot: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv")
     };
     var dataset = coinsData[select];
     var lineGraph = LineGraph(".section-details__graph");
@@ -392,7 +393,6 @@ __webpack_require__.r(__webpack_exports__);
 var getDataName = data => data.reduce((acc, element) => [...acc, "<i>".concat(element.name, "</i>")], []); // Recibe un json y extraemos los datos para el modelo de la tarjeta
 
 var readArray = (data, func) => {
-  console.log(data);
   data.map(item => {
     var {
       id,
@@ -405,7 +405,6 @@ var readArray = (data, func) => {
 }; // Recibe un json y extraemos los datos para el modelo de la section
 
 var readDetails = (data, func) => {
-  console.log(data);
   var {
     name,
     links,
