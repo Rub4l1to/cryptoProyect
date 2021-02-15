@@ -393,7 +393,6 @@ __webpack_require__.r(__webpack_exports__);
 var getDataName = data => data.reduce((acc, element) => [...acc, "<i>".concat(element.name, "</i>")], []); // Recibe un json y extraemos los datos para el modelo de la tarjeta
 
 var readArray = (data, func) => {
-  console.log(data);
   data.map(item => {
     var {
       id,
@@ -406,7 +405,6 @@ var readArray = (data, func) => {
 }; // Recibe un json y extraemos los datos para el modelo de la section
 
 var readDetails = (data, func) => {
-  console.log(data);
   var {
     name,
     links,
