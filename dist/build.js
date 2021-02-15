@@ -55,12 +55,16 @@ function call() {
 
 function _call() {
   _call = _asyncToGenerator(function* () {
+    var select = document.querySelector("#coins").value;
     var coinsData = {
       bitcoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv"),
-      ethereum: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/ethereum.csv")
+      ethereum: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/ethereum.csv"),
+      cardano: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/cardano.csv"),
+      litecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/litecoin.csv"),
+      tether: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/tether.csv"),
+      ripple: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/XRP.csv")
     };
-    var dataset = coinsData["bitcoin"]; // const dataset2 = coinsData["ethereum"]
-
+    var dataset = coinsData[select];
     var lineGraph = LineGraph(".section-details__graph");
     lineGraph.clear();
     lineGraph.build();
@@ -101,7 +105,7 @@ function LineGraph(container) {
     var yScale = d3__WEBPACK_IMPORTED_MODULE_0__.scaleLinear().domain([0, d3__WEBPACK_IMPORTED_MODULE_0__.max(dataset, yAccessor)]).range([dimensions.boundedHeight, 0]);
     var xScale = d3__WEBPACK_IMPORTED_MODULE_0__.scaleTime().domain(d3__WEBPACK_IMPORTED_MODULE_0__.extent(dataset, xAccessor)).range([0, dimensions.boundedWidth]); //Draw data & tooltip
 
-    var lineGenerator = d3__WEBPACK_IMPORTED_MODULE_0__.line().x(d => xScale(xAccessor(d))).y(d => yScale(yAccessor(d)));
+    var lineGenerator = d3__WEBPACK_IMPORTED_MODULE_0__.line().curve(d3__WEBPACK_IMPORTED_MODULE_0__.curveBasis).x(d => xScale(xAccessor(d))).y(d => yScale(yAccessor(d)));
     var line = bounds.append("path").data(dataset).attr("d", lineGenerator(dataset)).attr("fill", "none").attr("stroke", "#2B3FCC").attr("stroke-width", "3").call(transition).on("mousemove", ev => {
       line.attr("stroke-width", "4").attr("opacity", "0.2");
       var graphX = ev.offsetX - dimensions.margins.left;
@@ -109,8 +113,8 @@ function LineGraph(container) {
       tooltip.innerHTML = "\n                <b>".concat(numberFormat(yScale.invert(graphY)), "$</b> <br>\n                   ").concat(formatTime(xScale.invert(graphX)));
       tooltip.classList.remove("hidden");
     }).on("touchend mouseleave", ev => {
-      line.attr("stroke-width", "3").attr("opacity", "100%"); //tooltip.classList.add("hidden")
-
+      line.attr("stroke-width", "3").attr("opacity", "100%");
+      tooltip.classList.add("hidden");
       tooltip.style.top = ev.pageY + "px";
       tooltip.style.left = ev.pageX + "px";
     }); //Animate line
@@ -135,7 +139,7 @@ function LineGraph(container) {
       return d + " $";
     });
     var xAxis = d3__WEBPACK_IMPORTED_MODULE_0__.axisBottom().scale(xScale).ticks(4).tickFormat((d, i) => tickLabels[i]);
-    bounds.append("g").call(yAxis).call(g => g.select(".domain").attr("stroke-opacity", 0.5).attr("stroke-dasharray", "2,2")).call(g => g.selectAll("line").attr("stroke-opacity", 0.5).attr("stroke-dasharray", "2,2")).call(g => g.selectAll(".tick text").attr("x", -3).attr("dy", 0)).attr("font-size", 12).attr("font-family", "Roboto").attr("font-weight", 700).attr("color", "grey").call(g => g.select(".domain").remove());
+    bounds.append("g").call(yAxis).call(g => g.select(".domain").attr("stroke-opacity", 0.5).attr("stroke-dasharray", "2,2")).call(g => g.selectAll("line").attr("stroke-opacity", 0.5).attr("stroke-dasharray", "2,2")).call(g => g.selectAll(".tick text").attr("x", -5).attr("dy", 3)).attr("font-size", 12).attr("font-family", "Roboto").attr("font-weight", 700).attr("color", "grey").call(g => g.select(".domain").remove());
     bounds.append("g").call(xAxis).style("transform", "translateY(".concat(dimensions.boundedHeight, "px)")).call(g => g.select(".domain").remove()).call(g => g.selectAll("line").remove()).call(g => g.selectAll("text").attr("dy", 20)).attr("font-family", "Roboto").attr("font-size", 12).attr("font-weight", 700).attr("color", "grey");
   }
 
