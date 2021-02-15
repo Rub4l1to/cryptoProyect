@@ -6,17 +6,22 @@ const parseDate = d3.timeParse("%Y-%m-%d");
 const yAccessor = (d) => parseFloat(d["Closing Price (USD)"]);
 const tooltip = document.querySelector(".tooltip");
 const parent = d3.select(".section-details__graph");
-const numberFormat = d3.format(".4r");
-const formatTime = d3.timeFormat("%d-%m-%y");
+const numberFormat = d3.format(".4r")
+const formatTime = d3.timeFormat("%d-%m-%y")
+
 
 async function call() {
+  const select = document.querySelector("#coins").value
   const coinsData = {
     bitcoin: await d3.csv("./src/data/bitcoin.csv"),
     ethereum: await d3.csv("./src/data/ethereum.csv"),
+    cardano: await d3.csv("./src/data/cardano.csv"),
+    litecoin: await d3.csv("./src/data/litecoin.csv"),
+    tether: await d3.csv("./src/data/tether.csv"),
+    ripple: await d3.csv("./src/data/XRP.csv"),
   };
 
-  const dataset = coinsData["bitcoin"];
-  // const dataset2 = coinsData["ethereum"]
+  const dataset = coinsData[select];
   const lineGraph = LineGraph(".section-details__graph");
   lineGraph.clear();
   lineGraph.build();
@@ -77,8 +82,8 @@ function LineGraph(container) {
       .range([0, dimensions.boundedWidth]);
 
     //Draw data & tooltip
-    const lineGenerator = d3
-      .line()
+    const lineGenerator = d3.line()
+      .curve(d3.curveBasis)
       .x((d) => xScale(xAccessor(d)))
       .y((d) => yScale(yAccessor(d)));
 
@@ -103,7 +108,7 @@ function LineGraph(container) {
       })
       .on("touchend mouseleave", (ev) => {
         line.attr("stroke-width", "3").attr("opacity", "100%");
-        //tooltip.classList.add("hidden")
+        tooltip.classList.add("hidden")
         tooltip.style.top = ev.pageY + "px";
         tooltip.style.left = ev.pageX + "px";
       });
@@ -160,7 +165,7 @@ function LineGraph(container) {
           .attr("stroke-opacity", 0.5)
           .attr("stroke-dasharray", "2,2")
       )
-      .call((g) => g.selectAll(".tick text").attr("x", -3).attr("dy", 0))
+      .call((g) => g.selectAll(".tick text").attr("x", -5).attr("dy", 3))
       .attr("font-size", 12)
       .attr("font-family", "Roboto")
       .attr("font-weight", 700)
