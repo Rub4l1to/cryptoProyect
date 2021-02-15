@@ -56,13 +56,15 @@ function call() {
 function _call() {
   _call = _asyncToGenerator(function* () {
     var select = document.querySelector("#coins").value;
+    console.log(select);
     var coinsData = {
       bitcoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv"),
       ethereum: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/ethereum.csv"),
       cardano: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/cardano.csv"),
       litecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/litecoin.csv"),
       tether: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/tether.csv"),
-      ripple: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/XRP.csv")
+      ripple: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/XRP.csv"),
+      binancecoin: yield d3__WEBPACK_IMPORTED_MODULE_0__.csv("./src/data/bitcoin.csv")
     };
     var dataset = coinsData[select];
     var lineGraph = LineGraph(".section-details__graph");
