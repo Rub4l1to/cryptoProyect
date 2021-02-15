@@ -9,7 +9,7 @@
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  outline: 0;
+  outline: none;
   box-shadow: none;
   background-image: none;
   margin-top: 2em;
@@ -40,6 +40,7 @@
     }
   }
   &--2 {
+    outline: none;
     padding: 1em 3em;
     color: #f1f1f1;
     margin-top: 2em;
