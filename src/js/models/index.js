@@ -53,7 +53,7 @@ export const drawInfo = (name, links, market_data) => {
   // Insertamos los valores en las capas
   section_details.className = "section-details show";
   title_details.innerHTML = name;
-  details_price.innerHTML = `${market_data.current_price.eur.toFixed(0)} $`;
+  details_price.innerHTML = `${market_data.current_price.usd.toFixed(0)} $`;
   percentage.innerHTML = `${market_data.price_change_percentage_24h.toFixed(2)} %`;
   document.querySelector("#link").href = links.homepage[0];
 

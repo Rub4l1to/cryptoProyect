@@ -330,7 +330,7 @@ var drawInfo = (name, links, market_data) => {
 
   section_details.className = "section-details show";
   title_details.innerHTML = name;
-  details_price.innerHTML = "".concat(market_data.current_price.eur.toFixed(0), " $");
+  details_price.innerHTML = "".concat(market_data.current_price.usd.toFixed(0), " $");
   percentage.innerHTML = "".concat(market_data.price_change_percentage_24h.toFixed(2), " %");
   document.querySelector("#link").href = links.homepage[0]; // En caso de que el porcentaje sea positivo se pondra en verde o rojo
 
@@ -393,6 +393,7 @@ __webpack_require__.r(__webpack_exports__);
 var getDataName = data => data.reduce((acc, element) => [...acc, "<i>".concat(element.name, "</i>")], []); // Recibe un json y extraemos los datos para el modelo de la tarjeta
 
 var readArray = (data, func) => {
+  console.log(data);
   data.map(item => {
     var {
       id,
@@ -405,6 +406,7 @@ var readArray = (data, func) => {
 }; // Recibe un json y extraemos los datos para el modelo de la section
 
 var readDetails = (data, func) => {
+  console.log(data);
   var {
     name,
     links,
